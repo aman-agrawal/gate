@@ -108,5 +108,4 @@ test {
       }
     }
   }
-  useJUnitPlatform()
 }
