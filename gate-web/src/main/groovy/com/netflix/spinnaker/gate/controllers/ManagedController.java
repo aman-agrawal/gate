@@ -30,6 +30,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import lombok.SneakyThrows;
+import org.apache.commons.io.FilenameUtils;
 import okhttp3.ResponseBody;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -109,7 +110,7 @@ public class ManagedController {
   @Operation(summary = "Get a resource")
   @GetMapping(path = "/resources/{resourceId}")
   Resource getResource(@PathVariable("resourceId") String resourceId) {
-    return Retrofit2SyncCall.execute(keelService.getResource(resourceId));
+    return Retrofit2SyncCall.execute(keelService.getResource(FilenameUtils.getName(resourceId)));
   }
 
   @Operation(summary = "Get a resource")
